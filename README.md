@@ -12,6 +12,7 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
   - ✅ Public/private channels (only if bot is invited)
   - ✅ Thread replies (uses parent as task)
   - ✅ Slack username rendering (no raw user IDs)
+  - ✅ GitHub labels via inline Slack tags
 
 ---
 
@@ -76,18 +77,33 @@ mpim:read
 In Slack:
 
 ```text
-@todo <@U01ABCXYZ99> Follow up on antibody order
+@todo <@U01ABCXYZ99> Follow up on antibody order #urgent #project(pacsin2)
 ```
 
 ➡️ GitHub Issue will be created:
 
 ```
-**Location:** Direct Message
+**Location:** Direct Message  
 **From Slack:** https://yourworkspace.slack.com/archives/DM123/p123456
 
 **Context:**
 Follow up on antibody order
 ```
+
+And labeled with:
+```
+Labels: urgent, project:pacsin2
+```
+
+---
+
+## 🏷️ Label Syntax
+
+- Use hashtags in Slack to assign GitHub labels:
+  - `#urgent` → becomes `urgent`
+  - `#project(pacsin2)` → becomes `project:pacsin2`
+- Labels are automatically added to issues
+- Duplicates are skipped (including previously closed issues)
 
 ---
 
@@ -98,6 +114,7 @@ Follow up on antibody order
 - Mentions in **DMs or thread replies** are fully supported
 - Usernames are rendered in plain text in GitHub (e.g. `@Guillaume Jacquemet`)
 - API usage is rate-limited for safety
+- Forwarded emails must include `@todo` and a tag
 
 ---
 
