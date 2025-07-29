@@ -2,7 +2,8 @@ name: Sync Slack To-Dos
 
 on:
   schedule:
-    - cron: '0 8 * * 1-5'  # Weekdays at 08:00
+    - cron: '0 8 * * *'    # Every day at 08:00 UTC
+    - cron: '0 16 * * *'   # Every day at 16:00 UTC
   workflow_dispatch:
 
 jobs:
