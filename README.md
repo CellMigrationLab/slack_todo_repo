@@ -4,7 +4,7 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
 
 ## ✅ What It Does
 
-- Runs once daily (or manually via GitHub Actions)
+- Runs once daily (or manually via [GitHub Actions](.github/workflows/slack_todo.yml))
 - Scans Slack for messages containing `@todo` **and tagging you**
 - Converts matches into GitHub Issues with context, link, and display names
 - Supports:
@@ -20,69 +20,49 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
 
 ### 1. **Create a Private GitHub Repo Using This Template**
 
-- Clone or fork this project into a new private repo.
+- Clone or fork this project into a new private repo:  <button name="button" onclick="https://github.com/new?template_name=slack_todo_repo&template_owner=CellMigrationLab">Clone</button> 
 
----
 
 ### 2. **Set the Following GitHub Secrets**  
-_Go to: Settings → Secrets → Actions → New repository secret_
+**In your repository, go to:** _Settings → Secrets → Actions → New repository secret_
 
-| Name               | Example Value         | Description                           |
-|--------------------|-----------------------|---------------------------------------|
-| `SLACK_BOT_TOKEN`  | `xoxb-...`            | Your Slack Bot OAuth token            |
-| `SLACK_USERNAME`   | `U01ABCXYZ99`         | Your Slack **user ID** (not handle)   |
-| `GITHUB_TOKEN`     | (auto-generated)      | GitHub’s default token (read/write)   |
+| Name               | Example Value         | Description                           | How to Get It                      |
+|--------------------|-----------------------|---------------------------------------|-------------------------------------|
+| `SLACK_BOT_TOKEN`  | `xoxb-...`            | Your Slack Bot OAuth token            |          [Link here](docs/get_slack_bot_token.md)                 |
+| `SLACK_USERNAME`   | `U01ABCXYZ99`         | Your Slack **user ID** (not handle)   |          [Link here](docs/get_slack_id.md)                 |
+| `GITHUB_TOKEN`     | (auto-generated)      | GitHub’s default token (read/write)   |      [Link here](docs/create_github_token.md)                 |
 
-🔎 To get your Slack user ID:  
-Click your profile in Slack → “Profile” → “More” → “Copy member ID”
+### 3. **Install the Slack App on Your Workspace**
 
----
+- Go to [Slack API Apps](https://api.slack.com/apps)
+- Click on your app or create a new one as described in [this guide](docs/get_slack_bot_token.md) 
+- Click **Install App to Workspace** and authorize it
+- Invite the bot to any channels you want it to monitor (e.g. `#general`, `#random`)
+- Make sure the bot is a member of any channels you want to monitor
+- If you want to use the bot in DMs, it must be added to those conversations
 
-### 3. **Create & Configure a Slack App**
 
-Go to: https://api.slack.com/apps → “Create New App”
-
-1. **Bot Scopes** (OAuth & Permissions):
-    ```
-app_mentions:read
-channels:history
-channels:read
-chat:write
-groups:history
-groups:read
-im:history
-im:read
-mpim:read
-    ```
-
-2. **Install App to Workspace**
-
-3. **Invite Bot to Any Relevant Channels**:
-    ```
-    /invite @your-bot-name
-    ```
-
----
 
 ### 4. **Enable GitHub Actions**
 
 - GitHub Action runs:
   - 📅 Automatically once daily (e.g. 8am weekdays)
   - 👆 Or manually via the Actions tab → "Run workflow"
-
----
-
+- Be sure to enable GitHub Actions in your repo settings:
+  - Go to **Settings → Actions → General**
+  - Set **Workflow permissions** to "Read and write permissions"
+  - Enable "Allow GitHub Actions to create and approve pull requests"
 ## ✅ Example Usage
 
-In Slack:
+➡️ Message in Slack:
 
 ```text
 @todo <@U01ABCXYZ99> Follow up on antibody order #urgent #project(pacsin2)
 ```
 
-➡️ GitHub Issue will be created:
+⚙️ GitHub Issue will be created:
 
-```
+```markdown
 **Location:** Direct Message  
 **From Slack:** https://yourworkspace.slack.com/archives/DM123/p123456
 
@@ -91,8 +71,8 @@ Follow up on antibody order
 ```
 
 And labeled with:
-```
-Labels: urgent, project:pacsin2
+```markdown
+**Labels:** urgent, project:pacsin2
 ```
 
 ---
