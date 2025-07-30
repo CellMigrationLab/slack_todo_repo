@@ -14,8 +14,6 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
   - ✅ Slack username rendering (no raw user IDs)
   - ✅ GitHub labels via inline Slack tags
 
----
-
 ## 🚀 Setup Instructions
 
 ### 1. **Create a Private GitHub Repo Using This Template**
@@ -40,8 +38,6 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
 - Invite the bot to any channels you want it to monitor (e.g. `#general`, `#random`)
 - Make sure the bot is a member of any channels you want to monitor
 - If you want to use the bot in DMs, it must be added to those conversations
-
-
 
 ### 4. **Enable GitHub Actions**
 
@@ -75,8 +71,6 @@ And labeled with:
 **Labels:** urgent, project:pacsin2
 ```
 
----
-
 ## 🏷️ Label Syntax
 
 - Use hashtags in Slack to assign GitHub labels:
@@ -85,7 +79,6 @@ And labeled with:
 - Labels are automatically added to issues
 - Duplicates are skipped (including previously closed issues)
 
----
 
 ## 📎 Notes & Best Practices
 
@@ -96,13 +89,10 @@ And labeled with:
 - API usage is rate-limited for safety
 - Forwarded emails must include `@todo` and a tag
 
----
 
 ## 🧠 Manual GitHub Tasks
 
 You can also create issues manually — they won’t be overwritten or removed by the bot.
-
----
 
 ## 🛟 Troubleshooting
 
