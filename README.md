@@ -1,6 +1,6 @@
 # 🧾 Slack → GitHub To-Do Bot
 
-This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues in a private repo.
+This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues in a private repo
 
 ## ✅ What It Does
 
@@ -18,7 +18,7 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
 
 ### 1. **Create a Private GitHub Repo Using This Template**
 
-- Clone or fork this project into a new private repo:  <button name="button" onclick="https://github.com/new?template_name=slack_todo_repo&template_owner=CellMigrationLab">Clone</button> 
+- Clone or fork this project into a new private repo [here](https://github.com/new?template_name=slack_todo_repo&template_owner=CellMigrationLab">Clone</button>)
 
 
 ### 2. **Set the Following GitHub Secrets**  
@@ -52,24 +52,20 @@ This bot pulls `@todo <@yourname>` messages from Slack and creates GitHub issues
 
 ➡️ Message in Slack:
 
-```text
-@todo <@U01ABCXYZ99> Follow up on antibody order #urgent #project(pacsin2)
-```
+> @todo <@U01ABCXYZ99> Follow up on antibody order #urgent #project(pacsin2)
 
 ⚙️ GitHub Issue will be created:
 
-```markdown
-**Location:** Direct Message  
-**From Slack:** https://yourworkspace.slack.com/archives/DM123/p123456
+> **Location:** Direct Message  
+> **From Slack:** https://yourworkspace.slack.com/archives/DM123/p123456
+>
+> **Context:**
+> Follow up on antibody order
 
-**Context:**
-Follow up on antibody order
-```
 
 And labeled with:
-```markdown
-**Labels:** urgent, project:pacsin2
-```
+
+> **Labels:** urgent, project:pacsin2
 
 ## 🏷️ Label Syntax
 
@@ -82,7 +78,7 @@ And labeled with:
 
 ## 📎 Notes & Best Practices
 
-- Mentions must use `<@SlackUserID>` format — tagging via autocomplete does this by default.
+- Mentions must use `<@SlackUserID>` format — tagging via autocomplete does this by default
 - The bot **only reads channels it's a member of**
 - Mentions in **DMs or thread replies** are fully supported
 - Usernames are rendered in plain text in GitHub (e.g. `@Guillaume Jacquemet`)
@@ -92,7 +88,7 @@ And labeled with:
 
 ## 🧠 Manual GitHub Tasks
 
-You can also create issues manually — they won’t be overwritten or removed by the bot.
+You can also create issues manually — they won’t be overwritten or removed by the bot
 
 ## 🛟 Troubleshooting
 
