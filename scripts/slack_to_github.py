@@ -23,7 +23,6 @@ def extract_tags(text):
             labels.append(tag.lower())
     return labels
 
-
 def extract_task_title(text):
     # Remove @todo and @username
     text = re.sub(r"@todo", "", text, flags=re.IGNORECASE)
@@ -54,8 +53,6 @@ def extract_message_text(msg):
 
     return ""
 
-
-
 def resolve_user_name(user_id):
     if user_id in user_cache:
         return user_cache[user_id]
@@ -71,7 +68,7 @@ def replace_user_ids_with_names(text):
     user_ids = re.findall(r"<@([A-Z0-9]+)>", text)
     for uid in user_ids:
         name = resolve_user_name(uid)
-        text = text.replace(f"<@{uid}>", f"@{name}")
+        text = text.replace(f"<@{uid}>", f"`@{name}`")
     return text
 
 def list_all_channels():
@@ -175,7 +172,6 @@ def issue_already_exists(permalink):
             return True
     return False
 
-
 def create_github_issue(title, body, labels):
     permalink_line = body.splitlines()[1].strip() if len(body.splitlines()) > 1 else ""
     if issue_already_exists(permalink_line):
@@ -192,7 +188,6 @@ def create_github_issue(title, body, labels):
         print("GitHub issue creation failed:", res.text)
     else:
         print(f"✅ Created GitHub issue: {title} with labels {labels}")
-
 
 # 🔁 Run full extraction
 for message, channel, location in fetch_mentions():
